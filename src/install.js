@@ -55,7 +55,7 @@ export function install(config = {}) {
 
     function dispatch(action) {
       if (action === 'function') {
-        return action(dispatch, store.getState);
+        return action(store.dispatch, store.getState);
       }
 
       const result = store.dispatch(action);
