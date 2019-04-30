@@ -54,6 +54,10 @@ export function install(config = {}) {
     }
 
     function dispatch(action) {
+      if (action === 'function') {
+        return action(dispatch, store.getState);
+      }
+
       const result = store.dispatch(action);
       const cmdsToRun = cmdsQueue;
       cmdsQueue = [];
